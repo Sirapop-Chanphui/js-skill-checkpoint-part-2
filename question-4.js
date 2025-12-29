@@ -25,22 +25,29 @@ const betaSoftWithCompany = betaSoft.map(employee => ({
   company: "betaSoft"
 }));
 
-const allEmployees = [...alphaTechWithCompany, ...betaSoftWithCompany];
+const gammaDevWithCompany = gammaDev.map(employee => ({
+  ...employee,
+  company: "gammaDev"
+}));
+
+const allEmployees = [...alphaTechWithCompany, ...betaSoftWithCompany, ...gammaDevWithCompany];
 
 const result = allEmployees.filter((employee) => {
-  return employee.department === 'Enginring' && employee.age >= 20;
+  return employee.department === 'Engineering' && employee.age >= 20;
 }).map((employee) => {
   return {
     name: employee.name,
-    company: '' 
+    company: employee.company
   };
 });
 
+//console.log(allEmployees)
 console.log(result);
 // [
 //     { name: 'Alice', company: 'alphaTech' },
 //     { name: 'Charlie', company: 'betaSoft' },
 //     { name: 'Grace', company: 'gammaDev' }
 // ]
+
   
 
